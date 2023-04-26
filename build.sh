@@ -12,8 +12,7 @@ wget https://github.com/umami-software/umami/archive/refs/tags/v$UMAMI_VERSION.t
 tar xvzf v$UMAMI_VERSION.tar.gz
 cd "umami-$UMAMI_VERSION"
 
-npm install yarn
-./node_modules/.bin/yarn install
+yarn install
 
 if [[ -z "${POSTGRESQL_ADDON_URI}" ]]; then
     echo "POSTGRESQL_ADDON_URI is not set"
@@ -22,5 +21,5 @@ else
     echo ${POSTGRESQL_ADDON_URI} >> .env
 fi
 
-./node_modules/.bin/yarn build
+yarn build
 
